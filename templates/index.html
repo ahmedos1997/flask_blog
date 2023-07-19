@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <title>{% block title %} المدونة {% endblock %}</title>
+{% if posts %} 
+<h1>قائمة المقالات</h1>
+{% else %}
+<h1>لا توجد مقالات</h1>   
+{% endif %}
+<ul>
+    {% for post in posts %}
+    <li><a href="/posts/{{post['id'] }}">{{post['title']}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

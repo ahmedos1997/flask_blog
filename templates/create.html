@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}انشاء مقالة{% endblock %}
+{% block content %}
+<form action="{{ '/posts/{}/update'.format(post['id']) if post else '/posts/create' }}" method="post">
+  <div class="mb-3">
+  <label for="exampleInputEmail1" class="form-label">عنوان المقالة</label>
+  <input type="text" name="title" class="form-control" id="exampleInputEmail1" value="{{post['title'] if post else ''}}">
+    </div>
+    
+    <label for="exampleInputPassword1" class="form-label">متن المقالة</label>
+    <textarea class="form-control" name="body" rows="10">{{post['body'] if post else ''}}</textarea>
+    
+    <button type="submit" class="btn btn-primary">{{ 'تعديل المقالة' if post else 'انشاء المقالة'}}</button>
+</form> 
+    
+{% endblock %}
